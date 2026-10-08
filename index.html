@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="MIKOSMETICS: explora productos, promociones y tus pedidos en nuestra tienda online.">
+  <title>MIKOSMETICS — Tienda online</title>
+  <link rel="icon" href="assets/logo-mikosmetics.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/logo-mikosmetics.svg" as="image" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <!-- El SVG original permanece intacto. El futuro módulo de intro trazará sus contornos. -->
+  <div id="intro" class="intro" hidden aria-label="Bienvenida a MIKOSMETICS">
+    <button id="intro-enter" class="intro__enter" type="button" aria-label="Entrar a MIKOSMETICS">
+      <span class="intro__stage" aria-hidden="true">
+        <img class="intro__logo" src="assets/logo-mikosmetics.svg" alt="" width="640" height="240" decoding="async">
+        <span id="intro-trace" class="intro__trace"></span>
+      </span>
+      <span class="intro__prompt">TOCA PARA ENTRAR <span aria-hidden="true">↗</span></span>
+    </button>
+    <span class="intro__foot" aria-hidden="true">MIKOSMETICS / ONLINE STORE</span>
+  </div>
+
+  <div id="app" class="app">
+    <header class="site-header" id="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="#/inicio" data-link aria-label="MIKOSMETICS — Inicio">
+          <img src="assets/logo-mikosmetics.svg" alt="MIKOSMETICS" width="152" height="56" decoding="async">
+        </a>
+        <nav class="desktop-nav" aria-label="Navegación principal">
+          <a href="#/inicio" data-link>Inicio</a>
+          <a href="#/productos" data-link>Productos</a>
+          <a href="#/promociones" data-link>Promociones</a>
+          <a href="#/pedidos" data-link>Mis pedidos</a>
+          <a href="#/cuenta" data-link>Mi cuenta</a>
+          <a href="#/ayuda" data-link>Ayuda</a>
+          <a href="#/admin" data-link data-admin-link hidden>Administración</a>
+        </nav>
+        <div class="site-header__actions">
+          <a class="cart-shortcut" href="#/carrito" data-link aria-label="Abrir carrito">
+            <span class="cart-shortcut__label">Carrito</span>
+            <span id="header-cart-count" class="cart-shortcut__count" aria-hidden="true">0</span>
+          </a>
+          <button type="button" id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="menu-shade" class="menu-shade" hidden></div>
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil" hidden>
+      <div class="mobile-menu__heading"><span>EXPLORAR</span><button id="menu-close" type="button" aria-label="Cerrar menú">✕</button></div>
+      <a href="#/inicio" data-link>Inicio <span aria-hidden="true">01</span></a>
+      <a href="#/productos" data-link>Productos <span aria-hidden="true">02</span></a>
+      <a href="#/promociones" data-link>Promociones <span aria-hidden="true">03</span></a>
+      <a href="#/pedidos" data-link>Mis pedidos <span aria-hidden="true">04</span></a>
+      <a href="#/cuenta" data-link>Mi cuenta <span aria-hidden="true">05</span></a>
+      <a href="#/ayuda" data-link>Ayuda <span aria-hidden="true">06</span></a>
+      <a href="#/admin" data-link data-admin-link hidden>Administración <span aria-hidden="true">07</span></a>
+      <span class="mobile-menu__signature">MIKOSMETICS</span>
+    </nav>
+
+    <main id="main" tabindex="-1">
+      <!-- El atributo hidden define páginas independientes; NO son anclas de desplazamiento. -->
+      <section id="page-inicio" class="page page--home" data-page="inicio" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero__ambient" aria-hidden="true"></div>
+          <div class="hero__content">
+            <p class="eyebrow"><span class="eyebrow__line"></span> MIKOSMETICS / TIENDA ONLINE</p>
+            <h1 id="home-title">Descubre el<br><em>catálogo.</em></h1>
+            <p class="hero__description">Explora los productos disponibles y encuentra lo que estás buscando.</p>
+            <div class="hero__actions">
+              <a href="#/productos" data-link class="button button--light">Ver productos <span aria-hidden="true">↗</span></a>
+              <a href="#/promociones" data-link class="button button--quiet">Explorar promociones <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true"><img src="assets/logo-mikosmetics.svg" alt="" decoding="async"></div>
+          <p class="hero__index" aria-hidden="true">MIKOSMETICS — 001 / 003</p>
+        </div>
+        <div class="content-section" aria-labelledby="featured-title">
+          <div class="section-head"><div><p class="eyebrow">SELECCIÓN</p><h2 id="featured-title">Destacados<span class="period">.</span></h2></div><a href="#/productos" class="text-link" data-link>Ver todo el catálogo ↗</a></div>
+          <p id="featured-state" class="data-state" role="status">Cargando productos destacados…</p>
+          <div class="scroller-shell">
+            <button id="featured-prev" class="scroller-arrow" type="button" aria-label="Productos anteriores">←</button>
+            <div id="featured-list" class="product-scroller" role="region" aria-label="Productos destacados" tabindex="0"></div>
+            <button id="featured-next" class="scroller-arrow" type="button" aria-label="Productos siguientes">→</button>
+          </div>
+        </div>
+        <div class="content-section content-section--dark" aria-labelledby="home-promo-title">
+          <div class="home-promo"><div><p class="eyebrow">OFERTAS VIGENTES</p><h2 id="home-promo-title">Promociones<span class="period">.</span></h2><p>Consulta los precios especiales disponibles en este momento.</p><a class="button button--outline" href="#/promociones" data-link>Explorar promociones ↗</a></div><div id="home-promo-preview" class="home-promo__preview" aria-hidden="true"></div></div>
+        </div>
+      </section>
+
+      <section id="page-productos" class="page page--catalog" data-page="productos" aria-labelledby="catalog-title" hidden>
+        <header class="page-heading"><p class="eyebrow">MIKOSMETICS / CATÁLOGO</p><h1 id="catalog-title">Productos<span class="period">.</span></h1><p>Consulta disponibilidad y precios actualizados.</p></header>
+        <form id="catalog-filters" class="filters" role="search">
+          <label class="field"><span>Buscar productos</span><input id="catalog-query" type="search" placeholder="Nombre del producto" autocomplete="off"></label>
+          <label class="field"><span>Categoría</span><select id="catalog-category"><option value="">Todas las categorías</option></select></label>
+          <label class="field"><span>Ordenar</span><select id="catalog-sort"><option value="relevance">Relevancia</option><option value="price_asc">Precio: menor a mayor</option><option value="price_desc">Precio: mayor a menor</option><option value="name">Nombre</option></select></label>
+          <button class="button button--outline" type="reset">Limpiar filtros</button>
+        </form>
+        <p id="catalog-state" class="data-state" role="status">Cargando catálogo…</p>
+        <div id="catalog-list" class="product-grid" aria-live="off"></div>
+        <div class="pagination"><button id="catalog-more" type="button" class="button button--outline" hidden>Cargar más productos</button></div>
+      </section>
+
+      <section id="page-promociones" class="page" data-page="promociones" aria-labelledby="promos-title" hidden>
+        <header class="page-heading"><p class="eyebrow">MIKOSMETICS / SELECCIÓN</p><h1 id="promos-title">Promociones<span class="period">.</span></h1><p>Productos con descuentos vigentes.</p></header>
+        <p id="promos-state" class="data-state" role="status">Consultando promociones…</p>
+        <div id="promos-list" class="product-grid"></div>
+      </section>
+
+      <section id="page-producto" class="page page--product" data-page="producto" aria-labelledby="product-title" hidden>
+        <a href="#/productos" data-link class="back-link">← Volver a productos</a>
+        <p id="product-state" class="data-state" role="status">Cargando producto…</p>
+        <div id="product-detail" class="product-layout" hidden>
+          <div class="product-layout__gallery"><div id="product-main-media" class="product-layout__main-media"></div><div id="product-thumbs" class="product-layout__thumbs" aria-label="Imágenes del producto"></div></div>
+          <div class="product-layout__info"><p id="product-category" class="eyebrow"></p><h1 id="product-title"></h1><div id="product-prices" class="product-prices"></div><p id="product-availability" class="availability" role="status"></p><p id="product-description"></p><p id="product-material"></p>
+            <form id="add-to-cart-form"><input id="product-id" type="hidden"><label class="field field--quantity"><span>Cantidad</span><input id="product-quantity" type="number" min="1" step="1" value="1" inputmode="numeric" required></label><button id="add-to-cart" class="button button--light" type="submit">Agregar al carrito ↗</button></form>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-carrito" class="page page--cart" data-page="carrito" aria-labelledby="cart-title" hidden>
+        <header class="page-heading"><p class="eyebrow">TU SELECCIÓN</p><h1 id="cart-title">Carrito<span class="period">.</span></h1></header>
+        <div class="checkout-grid"><div><p id="cart-state" class="data-state" role="status"></p><div id="cart-items" class="cart-items"></div></div><aside class="summary" aria-label="Resumen del carrito"><h2>Resumen</h2><div class="summary__row"><span>Subtotal estimado</span><strong id="cart-subtotal">$0.00</strong></div><p>Los precios y la disponibilidad se comprobarán nuevamente al comprar. El carrito no reserva existencias.</p><button id="cart-checkout" type="button" class="button button--light">Continuar al pago ↗</button></aside></div>
+      </section>
+
+      <section id="page-acceso" class="page page--auth" data-page="acceso" aria-labelledby="login-title" hidden>
+        <header class="page-heading"><p class="eyebrow">TU ESPACIO</p><h1 id="login-title">Iniciar sesión<span class="period">.</span></h1></header>
+        <form id="login-form" class="form-card"><label class="field"><span>Correo electrónico</span><input name="email" type="email" autocomplete="email" required></label><label class="field"><span>Contraseña</span><input name="password" type="password" autocomplete="current-password" required></label><p id="login-state" class="form-state" role="status"></p><button class="button button--light" type="submit">Entrar</button><a href="#/registro" data-link>Crear una cuenta</a><a href="#/recuperar" data-link>Olvidé mi contraseña</a></form>
+      </section>
+
+      <section id="page-registro" class="page page--auth" data-page="registro" aria-labelledby="register-title" hidden>
+        <header class="page-heading"><p class="eyebrow">TU ESPACIO</p><h1 id="register-title">Crear cuenta<span class="period">.</span></h1></header>
+        <form id="register-form" class="form-card"><label class="field"><span>Nombre</span><input name="name" type="text" autocomplete="name" maxlength="90" required></label><label class="field"><span>Correo electrónico</span><input name="email" type="email" autocomplete="email" required></label><label class="field"><span>Contraseña</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label><p id="register-state" class="form-state" role="status"></p><button class="button button--light" type="submit">Crear cuenta</button><a href="#/acceso" data-link>Ya tengo cuenta</a></form>
+      </section>
+
+      <section id="page-recuperar" class="page page--auth" data-page="recuperar" aria-labelledby="recover-title" hidden>
+        <header class="page-heading"><p class="eyebrow">SEGURIDAD</p><h1 id="recover-title">Recuperar acceso<span class="period">.</span></h1></header>
+        <form id="recover-form" class="form-card"><label class="field"><span>Correo electrónico</span><input name="email" type="email" autocomplete="email" required></label><p id="recover-state" class="form-state" role="status"></p><button type="submit" class="button button--light">Enviar enlace de recuperación</button><a href="#/acceso" data-link>Volver al acceso</a></form>
+      </section>
+
+      <section id="page-restablecer" class="page page--auth" data-page="restablecer" aria-labelledby="reset-title" hidden>
+        <header class="page-heading"><p class="eyebrow">SEGURIDAD</p><h1 id="reset-title">Nueva contraseña<span class="period">.</span></h1></header>
+        <form id="reset-form" class="form-card"><label class="field"><span>Nueva contraseña</span><input name="password" type="password" autocomplete="new-password" minlength="8" required></label><p id="reset-state" class="form-state" role="status"></p><button type="submit" class="button button--light">Guardar contraseña</button></form>
+      </section>
+
+      <section id="page-cuenta" class="page" data-page="cuenta" aria-labelledby="account-title" hidden>
+        <header class="page-heading"><p class="eyebrow">MI PERFIL</p><h1 id="account-title">Mi cuenta<span class="period">.</span></h1></header>
+        <p id="account-state" class="data-state" role="status"></p>
+        <div id="account-content" hidden><form id="profile-form" class="form-card"><label class="field"><span>Nombre</span><input name="full_name" type="text" autocomplete="name" maxlength="90"></label><label class="field"><span>Teléfono</span><input name="phone" type="tel" autocomplete="tel" maxlength="30"></label><p id="profile-state" class="form-state" role="status"></p><button type="submit" class="button button--light">Guardar cambios</button></form><div class="account-links"><a href="#/direcciones" data-link>Mis direcciones ↗</a><a href="#/pedidos" data-link>Mis pedidos ↗</a><button id="logout-button" type="button" class="button button--outline">Cerrar sesión</button></div></div>
+      </section>
+
+      <section id="page-direcciones" class="page" data-page="direcciones" aria-labelledby="addresses-title" hidden>
+        <header class="page-heading"><p class="eyebrow">DATOS DE ENTREGA</p><h1 id="addresses-title">Mis direcciones<span class="period">.</span></h1></header>
+        <p id="addresses-state" class="data-state" role="status"></p><div id="addresses-list" class="address-grid"></div>
+        <form id="address-form" class="form-card"><h2 id="address-form-title">Agregar dirección</h2><input name="id" type="hidden"><label class="field"><span>Nombre del destinatario</span><input name="recipient_name" autocomplete="name" required></label><label class="field"><span>Teléfono</span><input name="phone" type="tel" autocomplete="tel" required></label><label class="field"><span>Calle y número</span><input name="street" autocomplete="address-line1" required></label><label class="field"><span>Colonia / información complementaria</span><input name="neighborhood" autocomplete="address-line2"></label><label class="field"><span>Ciudad</span><input name="city" autocomplete="address-level2" required></label><label class="field"><span>Estado</span><input name="state" autocomplete="address-level1" required></label><label class="field"><span>Código postal</span><input name="postal_code" autocomplete="postal-code" inputmode="numeric" required></label><p id="address-form-state" class="form-state" role="status"></p><button type="submit" class="button button--light">Guardar dirección</button><button id="address-cancel" type="button" class="button button--outline" hidden>Cancelar edición</button></form>
+      </section>
+
+      <section id="page-pedidos" class="page" data-page="pedidos" aria-labelledby="orders-title" hidden>
+        <header class="page-heading"><p class="eyebrow">HISTORIAL</p><h1 id="orders-title">Mis pedidos<span class="period">.</span></h1></header><p id="orders-state" class="data-state" role="status"></p><div id="orders-list" class="orders-list"></div>
+      </section>
+      <section id="page-pedido" class="page" data-page="pedido" aria-labelledby="order-detail-title" hidden><a href="#/pedidos" class="back-link" data-link>← Todos mis pedidos</a><header class="page-heading"><p class="eyebrow">SEGUIMIENTO</p><h1 id="order-detail-title">Detalle del pedido<span class="period">.</span></h1></header><p id="order-detail-state" class="data-state" role="status"></p><div id="order-detail" class="order-detail"></div></section>
+
+      <section id="page-checkout" class="page" data-page="checkout" aria-labelledby="checkout-title" hidden>
+        <header class="page-heading"><p class="eyebrow">COMPRA SEGURA</p><h1 id="checkout-title">Finalizar compra<span class="period">.</span></h1></header>
+        <p id="checkout-state" class="data-state" role="status"></p>
+        <div class="checkout-grid"><form id="checkout-form" class="form-card"><fieldset><legend>Método de entrega</legend><label class="radio-option"><input name="delivery_method" type="radio" value="personal" checked> Entrega personal</label><p class="field-help">Referencia: 20 de Noviembre. La ubicación y el horario exactos se confirmarán antes de habilitar esta opción para ventas reales.</p><label class="radio-option"><input name="delivery_method" type="radio" value="shipping"> Envío</label><p id="shipping-state" class="field-help">El envío depende de una cotización confirmada por el servidor.</p></fieldset><label class="field" id="checkout-address-field" hidden><span>Dirección de envío</span><select name="address_id" id="checkout-address"></select></label><p id="checkout-form-state" class="form-state" role="status"></p><button id="create-order" class="button button--light" type="submit" disabled>Continuar con el pedido</button></form><aside id="checkout-summary" class="summary" aria-label="Resumen del pedido"></aside></div>
+      </section>
+
+      <section id="page-pago" class="page" data-page="pago" aria-labelledby="payment-title" hidden><header class="page-heading"><p class="eyebrow">PAGO SEGURO</p><h1 id="payment-title">Pago del pedido<span class="period">.</span></h1></header><p id="payment-state" class="data-state" role="status"></p><div id="payment-brick" class="payment-brick"></div><div id="payment-actions" class="payment-actions"></div></section>
+
+      <section id="page-admin" class="page" data-page="admin" aria-labelledby="admin-title" hidden><header class="page-heading"><p class="eyebrow">ACCESO RESTRINGIDO</p><h1 id="admin-title">Administración<span class="period">.</span></h1></header><p id="admin-state" class="data-state" role="status"></p><div id="admin-content" hidden><div class="admin-tabs"><button type="button" data-admin-tab="products">Productos</button><button type="button" data-admin-tab="orders">Pedidos</button></div><div id="admin-panel"></div></div></section>
+
+      <section id="page-ayuda" class="page" data-page="ayuda" aria-labelledby="help-title" hidden><header class="page-heading"><p class="eyebrow">INFORMACIÓN</p><h1 id="help-title">Ayuda<span class="period">.</span></h1></header><div class="help-copy"><h2>Información de compra</h2><p>Los importes, disponibilidad y opciones de entrega se comprueban al finalizar un pedido. Agregar productos al carrito no aparta existencias.</p><h2>Acceso y pedidos</h2><p>Inicia sesión para consultar tu historial de pedidos, tu perfil y tus direcciones.</p><a href="#/cuenta" data-link class="text-link">Ir a mi cuenta ↗</a></div></section>
+      <section id="page-no-encontrado" class="page" data-page="no-encontrado" aria-labelledby="not-found-title" hidden><header class="page-heading"><p class="eyebrow">404</p><h1 id="not-found-title">Página no encontrada<span class="period">.</span></h1><a href="#/inicio" data-link class="button button--outline">Volver al inicio ↗</a></header></section>
+    </main>
+
+    <footer class="footer"><div class="footer__top"><a href="#/inicio" data-link class="footer__brand" aria-label="MIKOSMETICS, inicio"><img src="assets/logo-mikosmetics.svg" alt="MIKOSMETICS" width="200" height="72" loading="lazy"></a><nav aria-label="Navegación del pie de página"><a href="#/productos" data-link>Productos</a><a href="#/promociones" data-link>Promociones</a><a href="#/pedidos" data-link>Mis pedidos</a><a href="#/ayuda" data-link>Ayuda</a></nav></div><div class="footer__bottom"><span>© <span id="year">2026</span> MIKOSMETICS</span><span>Los precios finales se confirman durante la compra.</span></div></footer>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="screen-announcer" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+  <noscript><div class="no-script" role="alert">Activa JavaScript para navegar por la tienda y consultar productos. <a href="#/ayuda">Información de ayuda</a>.</div></noscript>
+</body>
+</html>
